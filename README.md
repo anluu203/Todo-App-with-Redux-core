@@ -1,3 +1,33 @@
+# Redux core
+Đây là dự án "Todo App" sử dụng thư viện Redux, Ant Design
+
+# Cấu trúc dự án
+
+- `src/`: Chứa toàn bộ source code của dự án
+  - `components/`: Bao gồm React components.
+
+    - `Filters/`: Hiển thị 3 chức năng filter(search, check radio_button, multiple select).
+        - `FiltersSlice.js`: bao gồm initalState, filterReducer
+        - `index.js`: render ra giao diện người dùng
+
+    - `Todo/`: Là 1 component con của `TodoList/` 
+        - `index.js`: render ra giao diện người dùng
+
+    - `TodoList/`: Hiển thị danh sách công việc 
+        - `index.js`: render ra giao diện người dùng
+        - `todoSlice`: bao gồm initalState, todoReducer
+
+  - `redux/`: Chứa cấu trúc thư mục của Redux
+    - `action.js`: Khởi tạo  các action
+    - `reducer.js`: import 2 reducer con từ 2 component Filters và TodoList, tạo ra `RootReducer`
+    - `selectors.js`: List công việc được render phụ thuôc vào nhiều filter, vì vậy cần tạo 1 
+                      selector chính để có thể gộp nhiều action của các filter lại, thuận tiện 
+                      cho việc bảo trì code
+    - `store.js`: Khởi tạo kho lưu trữ trạng thái và gắn thành global state
+                      
+  - `App.tsx`: Main application component.
+  - `index.tsx`: Entry point of the application.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
